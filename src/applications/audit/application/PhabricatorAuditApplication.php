@@ -19,7 +19,7 @@ final class PhabricatorAuditApplication extends PhabricatorApplication {
   }
 
   public function isPinnedByDefault(PhabricatorUser $viewer) {
-    return true;
+    return false;
   }
 
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {

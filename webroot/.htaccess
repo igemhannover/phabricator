@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteBase /
+RewriteRule ^/rsrc/(.*)     -                       [L,QSA]
+RewriteRule ^/favicon.ico   -                       [L,QSA]
+#RewriteRule ^(.*)$          /index.php?__path__=$1  [B,L,QSA] # from docs, wrong for uberspace.
+RewriteRule ^(.*)$ index.php?__path__=/$1 [B,L,QSA]

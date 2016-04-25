@@ -27,7 +27,7 @@ final class PhabricatorMySQLConfigOptions
           pht('MySQL database hostname.'))
         ->addExample('localhost', pht('MySQL on this machine'))
         ->addExample('db.example.com:3300', pht('Nonstandard port')),
-      $this->newOption('mysql.user', 'string', 'root')
+      $this->newOption('mysql.user', 'string', 'igem')
         ->setLocked(true)
         ->setDescription(
           pht('MySQL username to use when connecting to the database.')),
@@ -65,7 +65,7 @@ final class PhabricatorMySQLConfigOptions
             'this option. To provide your own implementation, extend '.
             '`%s`. It is very unlikely that you need to change this.',
             'AphrontMySQLDatabaseConnectionBase')),
-      $this->newOption('storage.default-namespace', 'string', 'phabricator')
+      $this->newOption('storage.default-namespace', 'string', 'igem_phabricator')
         ->setLocked(true)
         ->setSummary(
           pht('The namespace that Phabricator databases should use.'))

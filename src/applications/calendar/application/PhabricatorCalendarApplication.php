@@ -2,6 +2,8 @@
 
 final class PhabricatorCalendarApplication extends PhabricatorApplication {
 
+  function isPinnedByDefault(PhabricatorUser $viewer) { return true; }
+
   public function getName() {
     return pht('Calendar');
   }

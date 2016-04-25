@@ -23,7 +23,7 @@ final class PhabricatorPeopleApplication extends PhabricatorApplication {
   }
 
   public function isPinnedByDefault(PhabricatorUser $viewer) {
-    return $viewer->getIsAdmin();
+    return true; /*$viewer->getIsAdmin()*/
   }
 
   public function getFlavorText() {

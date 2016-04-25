@@ -2,6 +2,8 @@
 
 final class PhabricatorFilesApplication extends PhabricatorApplication {
 
+  function isPinnedByDefault(PhabricatorUser $viewer) { return true; }
+
   public function getBaseURI() {
     return '/file/';
   }

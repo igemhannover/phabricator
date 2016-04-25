@@ -11,7 +11,7 @@ final class PhabricatorProjectApplication extends PhabricatorApplication {
   }
 
   public function isPinnedByDefault(PhabricatorUser $viewer) {
-    return true;
+    return false;
   }
 
   public function getBaseURI() {
