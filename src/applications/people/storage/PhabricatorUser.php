@@ -630,13 +630,14 @@ final class PhabricatorUser
       PhabricatorAuthSessionEngine::ONETIME_WELCOME);
 
     $body = pht(
-      "Welcome to Phabricator!\n\n".
-      "%s (%s) has created an account for you.\n\n".
-      "  Username: %s\n\n".
-      "To login to Phabricator, follow this link and set a password:\n\n".
+      "Heyho!\n\n".
+      "%s (%s) hat dir einen Account im Phabricator erstellt.\n\n".
+      "Das ist das System, was unser derzeitiges Wiki ersetzen soll.\n\n".
+      "Wenn du magst, schau es dir ein bisschen an und sag bescheid falls etwas kaputt ist oder dir nicht gefällt.\n\n".
+      "  Benutzername: %s\n\n".
+      "Um dich einzuloggen, gehe auf diesen Link und setze ein Passwort:\n\n".
       "  %s\n\n".
-      "After you have set a password, you can login in the future by ".
-      "going here:\n\n".
+      "Falls du schon ein Passwort gesetzt hast, kannst du dich jederzeit von hier aus einloggen:\n\n".
       "  %s\n",
       $admin_username,
       $admin_realname,
@@ -644,16 +645,18 @@ final class PhabricatorUser
       $uri,
       $base_uri);
 
+    /*
     if (!$is_serious) {
       $body .= sprintf(
         "\n%s\n",
         pht("Love,\nPhabricator"));
     }
+    */
 
     $mail = id(new PhabricatorMetaMTAMail())
       ->addTos(array($this->getPHID()))
       ->setForceDelivery(true)
-      ->setSubject(pht('[Phabricator] Welcome to Phabricator'))
+      ->setSubject(pht('[iGEM] Einladung zum Phabricator-System'))
       ->setBody($body)
       ->saveAndSend();
   }
