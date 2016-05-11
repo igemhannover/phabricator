@@ -188,6 +188,43 @@ final class PhabricatorDashboardPanelRenderingEngine extends Phobject {
 
     $box = new PHUIObjectBoxView();
 
+    $twitter_widget_tag = phutil_tag("a", array(
+        "class"=>"twitter-timeline",
+        "data-widget-id"=>"730049561838927872",
+        "width"=>"100%",
+        "height"=>"600"), "Tweets by iGEM");
+
+    $twitter_widget_js = <<<JS
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = String.fromCharCode(104)+String.fromCharCode(116)+String.fromCharCode(116)+String.fromCharCode(112)+String.fromCharCode(115)+String.fromCharCode(58)+String.fromCharCode(47)+String.fromCharCode(47)+String.fromCharCode(112)+String.fromCharCode(108)+String.fromCharCode(97)+String.fromCharCode(116)+String.fromCharCode(102)+String.fromCharCode(111)+String.fromCharCode(114)+String.fromCharCode(109)+String.fromCharCode(46)+String.fromCharCode(116)+String.fromCharCode(119)+String.fromCharCode(105)+String.fromCharCode(116)+String.fromCharCode(116)+String.fromCharCode(101)+String.fromCharCode(114)+String.fromCharCode(46)+String.fromCharCode(99)+String.fromCharCode(111)+String.fromCharCode(109)+String.fromCharCode(47)+String.fromCharCode(119)+String.fromCharCode(105)+String.fromCharCode(100)+String.fromCharCode(103)+String.fromCharCode(101)+String.fromCharCode(116)+String.fromCharCode(115)+String.fromCharCode(46)+String.fromCharCode(106)+String.fromCharCode(115);
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, String.fromCharCode(115)+String.fromCharCode(99)+String.fromCharCode(114)+String.fromCharCode(105)+String.fromCharCode(112)+String.fromCharCode(116), String.fromCharCode(116)+String.fromCharCode(119)+String.fromCharCode(105)+String.fromCharCode(116)+String.fromCharCode(116)+String.fromCharCode(101)+String.fromCharCode(114)+String.fromCharCode(45)+String.fromCharCode(119)+String.fromCharCode(106)+String.fromCharCode(115)));
+JS;
+
+    if (strpos($header->header, 'iGEM News') !== false) {
+      $twitter_widget = id(new PHUIObjectBoxView())
+        ->appendChild(javelin_tag("script", array(), $twitter_widget_js))
+        ->appendChild($twitter_widget_tag);
+      $box->appendChild($twitter_widget);
+      $box->setHeader($header)
+        ->setID($id)
+        ->addSigil('dashboard-panel')
+        ->setMetadata(array('objectPHID' => $panel->getPHID()));
+      return phutil_tag_div('dashboard-pane', $box);
+    }
+
     $interface = 'PhabricatorApplicationSearchResultView';
     if ($content instanceof $interface) {
       if ($content->getObjectList()) {

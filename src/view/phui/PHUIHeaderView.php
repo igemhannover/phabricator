@@ -4,7 +4,7 @@ final class PHUIHeaderView extends AphrontTagView {
 
   const PROPERTY_STATUS = 1;
 
-  private $header;
+  public $header;
   private $tags = array();
   private $image;
   private $imageURL = null;
