@@ -631,9 +631,7 @@ final class PhabricatorUser
 
     $body = pht(
       "Heyho!\n\n".
-      "%s (%s) hat dir einen Account im Phabricator erstellt.\n\n".
-      "Das ist das System, was unser derzeitiges Wiki ersetzen soll.\n\n".
-      "Wenn du magst, schau es dir ein bisschen an und sag bescheid falls etwas kaputt ist oder dir nicht gefällt.\n\n".
+      "%s (%s) hat dir einen Account im Phabricator vom iGEM Team Hannover erstellt.\n\n".
       "  Benutzername: %s\n\n".
       "Um dich einzuloggen, gehe auf diesen Link und setze ein Passwort:\n\n".
       "  %s\n\n".
