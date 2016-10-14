@@ -190,9 +190,12 @@ final class PhabricatorDashboardPanelRenderingEngine extends Phobject {
 
     $twitter_widget_tag = phutil_tag("a", array(
         "class"=>"twitter-timeline",
-        "data-widget-id"=>"730049561838927872",
+        #"data-widget-id"=>"730049561838927872",
+        "data-dnt"=>"true" ,
+        "data-widget-id"=>"730353971215355904",
+        "data-chrome"=>"nofooter noborders noheader",
         "width"=>"100%",
-        "height"=>"600"), "Tweets by iGEM");
+        "height"=>"600"), "loading tweets...");
 
     $twitter_widget_js = <<<JS
 window.twttr = (function(d, s, id) {
